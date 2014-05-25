@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 		  compile: {
 		    options: {
 			    amd: true,
-			    namespace: 'templates'
+			    namespace: 'Handlebars.templates'
 		    },
 		    files: {
 			    'js/pagination/templates.js': ['js/pagination/*.hb'],
@@ -15,7 +15,6 @@ module.exports = function (grunt) {
 		    }
 		  }
     },
-
     sass: {
       options: {
         includePaths: ['bower_components/foundation/scss']
@@ -29,15 +28,21 @@ module.exports = function (grunt) {
         }        
       }
     },
-
+    uglify: {
+	    templates: {
+		    files: {
+			    'js/pagination/templates.js': ['js/pagination/templates.js'],
+			    'js/alert/templates.js': ['js/alert/templates.js'],
+			    'js/zookeeper/templates.js': ['js/zookeeper/templates.js']
+		    }
+	    }
+    },
     watch: {
+      grunt: { files: ['Gruntfile.js'] },
 	    handlebars: {
 	      files: 'js/**/*.hb',
-		    tasks: ['handlebars']
+		    tasks: ['handlebars', 'uglify']
 	    },
-
-      grunt: { files: ['Gruntfile.js'] },
-
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass']
@@ -45,10 +50,11 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-sass');
 
-  grunt.registerTask('build', ['sass', 'handlebars']);
+  grunt.registerTask('build', ['handlebars', 'sass', 'uglify']);
   grunt.registerTask('default', ['build', 'watch']);
 };
