@@ -1,7 +1,7 @@
 {
 	"name": "zoopeeker",
 	"description": "An intuitive and very fast single page Web UI to browse your Zookeeper servers.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Esen Sagynov <kadishmal@gmail.com>",
 	"devDependencies": {
 		"grunt": "~0.4.1",

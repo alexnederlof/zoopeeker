@@ -1,9 +1,10 @@
 define(['backbone', './templates'], function (Backbone, templates) {
 	function submit() {
-		var text = this.ui.path.val();
+		var text = this.ui.path.val(),
+				curLink = this.model.get('currentPath').link;
 
 		this.model.set({
-			link: this.model.get('currentPath').link + '/' + text,
+			link: curLink + (curLink.slice(-1) == '/' ? '' : '/') + text,
 			name: text,
 			data: this.ui.data.val()
 		});
