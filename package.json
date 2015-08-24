@@ -8,8 +8,8 @@
 		"grunt-contrib-handlebars": "~0.8.0",
 		"grunt-contrib-uglify": "^0.4.0",
 		"grunt-contrib-watch": "~0.5.3",
-		"grunt-sass": "~0.8.0",
-		"node-sass": "~0.7.0"
+		"grunt-sass": "~1.0.0",
+		"node-sass": "~3.2.0"
 	},
 	"dependencies": {
 		"async": "~0.2.10",

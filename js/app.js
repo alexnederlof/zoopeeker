@@ -82,7 +82,7 @@ require(['jquery', 'io', 'backbone', 'zookeeper/ZNodeView', 'alert', 'foundation
 		});
 	});
 
-	var socket = io.connect('http://localhost:8080/'),
+	var socket = io.connect('/'),
 			currentNodeView,
 			alertTimeout;
 
