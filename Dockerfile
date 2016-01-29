@@ -21,7 +21,7 @@ RUN cd /opt/zoopeeker && npm install && bower install --allow-root && chown -R z
 # Run the entire thing!
 WORKDIR /opt/zoopeeker
 
-USER news-service
+USER zoopeeker
 
 CMD ["node", "app.js"]
 
